@@ -48,7 +48,7 @@ $jml_pelanggan = $pelanggan->num_rows;
 				<h2><?php echo $jml_pelanggan ?></h2>
 			</div>
 			<a href="index.php?halaman=\
-			 pelanggan"><div class="panel-footer">Selengkapnya</div></a>
+			 pelanggan"><div class="panel-footer">Selengkapnya </div></a>
 		</div>
 	</div>
 </div>
