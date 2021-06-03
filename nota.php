@@ -51,9 +51,10 @@ if ($idpelangganbeli!==$idpelangganlogin)
 <div class="row">
 		<div class="col-md-4">
 			<h3>Pembelian</h3>
-			<strong>No. Pembelian : <?php echo number_format($detail['total_pembelian']); ?></strong><br>
+			<strong>No. Pembelian : <?php echo number_format($detail['id_pembelian']); ?></strong><br>
 			Tanggal : <?php echo $detail['tanggal_pembelian']; ?><br>
-			Total : Rp. <?php echo number_format($detail['total_pembelian']); ?>
+			 
+
 
 		</div>
 		<div class="col-md-4">
@@ -110,9 +111,9 @@ if ($idpelangganbeli!==$idpelangganlogin)
 			<p>
 				Silahkan Melakukan Pembayaran Sebesar Rp. <?php echo number_format ($detail['total_pembelian']) ; ?> <br>
 				Dengan  Keterangan : <br>
-				<u>Nomor Pembelian : <?php echo $detail['id_pembelian'];?></u> <br>
+				<u> Pembayaran Produk Fauzan Sparepart<br> Nomor Pembelian : <?php echo $detail['id_pembelian'];?></u> <br>
 				<strong> BANK DUIT 137-0010027-3275 AN. FAUZAN SPAREPART</strong> <br>
-				Atau Jika Ingin <a target="_blank" href="http://wa.me/628186169627"><u>Cash On Delivery</u></a> Bisa Whatsapp / Menghubungi Nomor 081286169627 - Fauzan Zakaria
+				Atau Jika Ingin Cash On Delivery Bisa Whatsapp Atau <br> Menghubungi Nomor <a target="_blank" href="http://wa.me/628186169627"><u>081286169627</u></a> - Fauzan Zakaria
 			</p>
 		</div>
 	</div>

@@ -1,4 +1,4 @@
-<h2>Data Pelanggan</h2>
+<h2>Data Admin</h2>
 
 <table class="table table-bordered">
 	<thead>
@@ -20,7 +20,7 @@
 			<td><?php echo $pecah['username']; ?></td>
 			<td><?php echo $pecah['nama_lengkap']; ?></td>
 			<td>
-				<a href="" class="btn btin-danger">Hapus</a>
+				<a href="index.php?halaman=hapus_admin&id=<?php echo $pecah['id_admin'] ?>" class="btn-danger btn"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
 			</td>
 		</tr>
 
@@ -30,3 +30,4 @@
 <a href="index.php?halaman=tambah_admin" 
 
 class="btn btn-primary square-btn-adjust">Tambah Admin</a>
+

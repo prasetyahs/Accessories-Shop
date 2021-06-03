@@ -41,22 +41,24 @@ if(!isset($_SESSION['admin']))
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Fauzan Sparepart</a> 
+                <a class="navbar-brand" href="index.php">Fauzan Sparepart</a> 
             </div>
-  <div style="color: white;
+<div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"> ADMIN &nbsp; <a href="logout.php" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+font-size: 16px;"> ADMIN &nbsp; <a href="logout.php" class="btn btn-danger square-btn-adjust">Logout</a> 
+</div>
         </nav>   
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">
-            <div class="sidebar-collapse">
+                <div class="sidebar-collapse">
+
                 <ul class="nav" id="main-menu">
 				<li class="text-center">
                     <img src="assets/img/me.jpg" class="user-image img-responsive"/>
 					</li>
                     <li>
-                        <a href="index.php"><i class="fa fa-dashboard "></i> Home</a>
+                        <a href="index.php"><i class="fa fa-home "></i> Home</a>
                     </li>
                     <li>
                         <a href="index.php?halaman=kategori"><i class="fa fa-tags"></i> Kategori</a>
@@ -72,6 +74,9 @@ font-size: 16px;"> ADMIN &nbsp; <a href="logout.php" class="btn btn-danger squar
                     </li>
                     <li>
                         <a href="index.php?halaman=pelanggan"><i class="fa fa-user"></i> Pelanggan</a>
+                    </li>
+                    <li>
+                        <a href="index.php?halaman=ongkir"><i class="fa fa-plane"></i> Ongkos Kirim</a>
                     </li>
                      <li>
                         <a href="index.php?halaman=admin"><i class="fa fa-user"></i> Admin</a>
@@ -150,6 +155,42 @@ font-size: 16px;"> ADMIN &nbsp; <a href="logout.php" class="btn btn-danger squar
                     {
                         include 'tambah_admin.php';
                     }
+                     elseif ($_GET['halaman']=="ongkir") 
+                    {
+                        include 'ongkir.php';
+                    }
+                     elseif ($_GET['halaman']=="hapus_admin")
+                    {
+                        include "hapus_admin.php";
+                    }
+                     elseif ($_GET['halaman']=="hapus_pelanggan")
+                    {
+                        include "hapus_pelanggan.php";
+                    }
+                      elseif ($_GET['halaman']=="hapus_ongkir")
+                    {
+                        include "hapus_ongkir.php";
+                    }
+                        elseif ($_GET['halaman']=="ubah_ongkir")
+                    {
+                        include "ubah_ongkir.php";
+                    }
+                      elseif ($_GET['halaman']=="hapus_kategori")
+                    {
+                        include "hapus_kategori.php";
+                    }
+                        elseif ($_GET['halaman']=="ubah_kategori")
+                    {
+                        include "ubah_kategori.php";
+                    }
+                       elseif ($_GET['halaman']=="tambah_ongkir")
+                    {
+                        include "tambah_ongkir.php";
+                    }
+                       elseif ($_GET['halaman']=="tambah_kategori")
+                    {
+                        include "tambah_kategori.php";
+                    }                    
                 }
                 else
                 {
@@ -159,8 +200,8 @@ font-size: 16px;"> ADMIN &nbsp; <a href="logout.php" class="btn btn-danger squar
             </div>
              <!-- /. PAGE INNER  -->
             </div>
-         <!-- /. PAGE WRAPPER  -->
-        </div>
+    <!-- /. PAGE WRAPPER  -->
+    </div>
      <!-- /. WRAPPER  -->
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
       <!-- BOOTSTRAP SCRIPTS -->

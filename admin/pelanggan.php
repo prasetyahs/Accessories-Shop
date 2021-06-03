@@ -6,7 +6,7 @@
 			<th>No</th>
 			<th>Nama</th>
 			<th>Email</th>
-			<th>Kota</th>
+			<th>Alamat</th>
 			<th>Telepon</th>
 			<th>Aksi</th>
 		</tr>
@@ -22,7 +22,7 @@
 			<td><?php echo $pecah['alamat_pelanggan']; ?></td>
 			<td><?php echo $pecah['telepon_pelanggan']; ?></td>
 			<td>
-				<a href="" class="btn btin-danger">Hapus</a>
+				<a href="index.php?halaman=hapus_pelanggan&id=<?php echo $pecah['id_pelanggan'] ?>" class="btn btn-danger">Hapus</a>
 			</td>
 		</tr>
 		<?php $nomor++; ?>

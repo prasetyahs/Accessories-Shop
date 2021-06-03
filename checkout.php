@@ -165,11 +165,10 @@ if(empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"]))
 		?>
 	</div>
 </section>
-<pre>
+<!-- <pre>
 	<?php print_r($_SESSION["pelanggan"])?>
 	<?php print_r($_SESSION["keranjang"])?>
-</pre>
-</pre>
+</pre> -->
 
 </body>
 </html>

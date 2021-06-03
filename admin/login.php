@@ -23,9 +23,9 @@ $koneksi = new mysqli("localhost","root","","toko");
 		<div class="row text-center ">
 			<div class="col-md-12">
 				<br /><br />
-				<h2> AKSES ADMIN</h2>
-
-				<h1>Selamat Datang</h1>
+				<h1> Fauzan Sparepart</h1>
+				<h3>Selamat Datang</h3>
+				<h2>Akses Admin</h2>
 				<br />
 			</div>
 		</div>
@@ -34,7 +34,7 @@ $koneksi = new mysqli("localhost","root","","toko");
 			<div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<strong>   Anda Harus Login Dahulu </strong>  
+						<strong>   Anda Harus Login Admin Dahulu </strong>  
 					</div>
 					<div class="panel-body">
 						<form role="form" method="post">
@@ -49,7 +49,7 @@ $koneksi = new mysqli("localhost","root","","toko");
 							</div>
 							<button class="btn btn-primary" name="login">Login</button>
 							<hr />
-							Not register ? <a href="registeration.html" >click here </a> 
+							
 						</form>
 						<?php
 						if(isset($_POST['login']))
@@ -59,12 +59,12 @@ $koneksi = new mysqli("localhost","root","","toko");
 							if ($yangcocok==1)
 							{
 								$_SESSION['admin']=$ambil->fetch_assoc();
-								echo "<div clas='alert alert-info'>Login Sukses</div>";
+								echo "<div class='alert alert-info'>Login Sukses</div>";
 								echo "<meta http-equiv='refresh' content='1;url=index.php'>"; 
 							}
 							else
 							{
-								echo "<div clas='alert alert-danger'>Login Gagal</div>";
+								echo "<div class='alert alert-danger'>Login Gagal</div>";
 								echo "<meta http-equiv='refresh' content='1;url=login.php'>"; 	
 							}
 						}

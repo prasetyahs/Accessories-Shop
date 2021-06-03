@@ -19,7 +19,7 @@
 		</div>
 	<div class="form-group">
 		<div class="col-md-7 col-md-offset-3">
-			<button class="btn btn-primary" name="daftar">Daftar</button>
+			<br><button class="btn btn-primary" name="daftar">Daftar</button>
 		</div>
 	</div>
 </form>
