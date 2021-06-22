@@ -24,7 +24,9 @@
 				<td>
 					<a href="index.php?halaman=detail&id=<?php echo $pecah['id_pembelian']; ?>" class="btn btn-info">Detail</a>
 
-				<a href="index.php?halaman=pembayaran&id=<?php echo $pecah['id_pembelian'] ?>" class="btn btn-success">Pembayaran</a>
+					<?php if ($pecah['status_pembelian']!=='batal'): ?>
+						<a href="index.php?halaman=pembayaran&id=<?php echo $pecah['id_pembelian'] ?>" class="btn btn-success">Pembayaran</a>
+				<?php endif ?>
 				</td>
 			</tr>
 		<?php $nomor++; ?>	

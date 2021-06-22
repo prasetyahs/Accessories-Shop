@@ -118,6 +118,14 @@ if ($idpelangganbeli!==$idpelangganlogin)
 				Dengan  Keterangan : <br>
 				<u> Pembayaran Produk Fauzan Sparepart<br> Nomor Pembelian : <?php echo $detail['id_pembelian'];?></u> <br>
 				<strong> BANK DUIT 137-0010027-3275 AN. FAUZAN SPAREPART</strong> <br>
+				<?php $ambil1 = $koneksi->query("SELECT * FROM pembayaran WHERE id_pembelian='$_GET[id]'");
+				$cekpem = $ambil1->num_rows;
+				if ($cekpem==0) {
+				 	echo "Lalu Silahkan <a href='pembayaran.php?id=".$detail['id_pembelian']."'> Konfirmasi Pembayaran</a> atau";
+				 } 
+				?>
+				Cek
+				 <a href="riwayat.php"; ?>Riwayat Belanja</a> 
 				<?php else: ?>
 				Untuk Pembayaran Ditempat <br>
 				Silahkan Menghubungi Nomor <a target="_blank" href="http://wa.me/628186169627"><u>081286169627</u></a> - Fauzan Zakaria <br>

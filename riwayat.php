@@ -56,8 +56,9 @@ if (!isset($_SESSION["pelanggan"]) OR empty($_SESSION["pelanggan"]))
 				<td>Rp. <?php echo number_format($pecah["total_pembelian"]) ;?></td>
 				<td>
 					<a href="nota.php?id=<?php echo $pecah["id_pembelian"] ?>" class="btn btn-info">Nota</a>
+					<?php if ($pecah['status_pembelian']!=="Batal"): ?>
 					<?php if ($pecah['pembayaran']=="transfer"): ?>
-					<?php if ($pecah['status_pembelian']=="pending"): ?>
+					<?php if ($pecah['status_pembelian']=="Menunggu Pembayaran"): ?>
 					<a href="pembayaran.php?id=<?php echo $pecah["id_pembelian"]; ?> " class="btn btn-success">
 					Konfirmasi Pembayaran
 					</a>
@@ -67,7 +68,8 @@ if (!isset($_SESSION["pelanggan"]) OR empty($_SESSION["pelanggan"]))
 					</a>
 				<?php endif ?>
 				<?php endif ?>
-				<?php if ($pecah['status_pembelian']=="pending"): ?>
+				<?php endif ?>
+				<?php if ($pecah['status_pembelian']=="Menunggu Pembayaran"): ?>
 				<a href="batal_beli.php?id=<?php echo $pecah["id_pembelian"]; ?> " class="btn btn-danger">
 					Batal Beli
 					</a>

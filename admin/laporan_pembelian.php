@@ -42,10 +42,10 @@ if (isset($_POST["kirim"]))
 			<label>Status</label>
 			<select class="form-control" name="status"> 
 			<option value="pilih status">Pilih Status</option>
-			<option value="pending" <?php echo $status=="pending" ? "selected":"" ?>>Menunggu Pembayaran</option>
-			<option value="proses" <?php echo $status=="proses" ? "selected":"" ?>>Proses  </option>
-			<option value="selesai" <?php echo $status=="selesai" ? "selected":"" ?>>Selesai  </option>
-			<option value="batal" <?php echo $status=="batal" ? "selected":"" ?>>Batal  </option> </select>
+			<option value="Menunggu Pembayaran" <?php echo $status=="Menunggu Pembayaran" ? "selected":"" ?>> Menunggu Pembayaran </option>
+			<option value="Proses" <?php echo $status=="Proses" ? "selected":"" ?>>Proses  </option>
+			<option value="Selesai" <?php echo $status=="Selesai" ? "selected":"" ?>>Selesai  </option>
+			<option value="Batal" <?php echo $status=="Batal" ? "selected":"" ?>>Batal  </option> </select>
 		</div>		
 	</div>
 	<div class="col-md-3">

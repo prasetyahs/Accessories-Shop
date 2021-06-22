@@ -34,7 +34,7 @@ $detail2 = $ambil2->fetch_assoc();
 		<h3>Pengiriman</h3>
 		<strong><?php echo $detail['nama_kota']; ?></strong>
 		Ongkos Kirim : Rp. <?php echo number_format($detail['tarif']); ?> <br>
-		Status: <?php echo $detail["status_pembelian"]; ?> <br>
+		Status Pembelian: <?php echo $detail["status_pembelian"]; ?> <br>
 		Alamat : <?php echo $detail['alamat_pengiriman']; ?>
 		</div>
 </div>
