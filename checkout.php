@@ -47,6 +47,15 @@ if(empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"]))
 				<?php $nomor=1; ?>
 				<?php $totalbelanja = 0; ?>
 				<?php foreach ($_SESSION["keranjang"] as $id_produk => $jumlah): ?> 
+				<?php 
+				$ambil = $koneksi->query("SELECT * FROM produk WHERE id_produk=$id_produk");
+				$databarang = $ambil->fetch_assoc();
+				if($databarang['stok_produk'] < $jumlah){
+					 echo "<script>alert('Stok Produk ".$databarang['nama_produk'] ." Tidak Cukup');</script>";	
+					 unset($_SESSION['keranjang'][$id_produk]);
+					 echo "<script>document.location.href='keranjang.php';</script>";
+				}
+				?>
 				<!-- menalpilkan produk yang sedang diperulangan berdasarkan id_produk -->
 				<?php
 				$ambil = $koneksi->query("SELECT * FROM produk
@@ -79,29 +88,26 @@ if(empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"]))
 		<form method="post">
 
 			<div class="row">
-				<div class="col-xs-4">
+				<div class="col-xs-3">
 					<div class="form-group">
 						<input type="text" readonly value="<?php echo $_SESSION["pelanggan"]['nama_pelanggan']?>" class="form-control">
 					</div>
 				</div>
-				<div class="col-xs-4">
+				<div class="col-xs-3">
 					<div class="form-group">
 					<input type="text" readonly value="<?php echo $_SESSION["pelanggan"]['telepon_pelanggan']?>" class="form-control">
 					</div>
 				</div>
-				<div class="col-xs-4">
-					<select class="form-control" name="id_ongkir">
-						<option value="">Pilih Ongkos Kirim</option>
-						<?php
-						$ambil = $koneksi->query("SELECT * FROM ongkir");
-						while ($perongkir = $ambil->fetch_assoc()){
-						?>
-						<option value="<?php echo $perongkir["id_ongkir"] ?>">
-								<?php echo $perongkir['nama_kota'] ?> -
-							Rp. <?php echo number_format($perongkir['tarif']) ?>
-						</option>
-						<?php } ?>
+				<div class="col-xs-3">
+					<select class="form-control" name="pembayaran" id="pembayaran">
+						<option value=""disabled selected hiden>Metode Pembayaran</option>
+						<option value="transfer">Transfer</option>
+						<option value="bayar_di_tempat">Bayar Di Tempat</option>
+						<option value="ambil_sendiri">Ambil Sendiri</option>
 					</select>
+				</div>
+				<div class="col-xs-3" id="ongkir">
+					
 				</div>
 			</div>	
 			<div class="form-group">
@@ -115,9 +121,14 @@ if(empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"]))
 		if (isset($_POST["checkout"]))
 		{
 			$id_pelanggan = $_SESSION["pelanggan"]["id_pelanggan"];
-			$id_ongkir = $_POST["id_ongkir"];
+			if(isset($_POST['id_ongkir'])){
+				$id_ongkir = $_POST["id_ongkir"];
+			}else{
+				$id_ongkir = 0;
+			}
 			$tanggal_pembelian = date("Y-m-d");
 			$alamat_pengiriman = $_POST['alamat_pengiriman'];
+			$pembayaran = $_POST['pembayaran'];
 
 			$ambil = $koneksi->query("SELECT * FROM ongkir WHERE id_ongkir='$id_ongkir'");
 			$arrayongkir = $ambil->fetch_assoc();
@@ -127,8 +138,8 @@ if(empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"]))
 			$total_pembelian = $totalbelanja + $tarif;
 
 			// 1. menyimpan data ke tabel pembelian
-			$koneksi->query("INSERT INTO pembelian ( id_pelanggan,id_ongkir,tanggal_pembelian,total_pembelian,nama_kota,tarif,alamat_pengiriman)
-				VALUES ('$id_pelanggan','$id_ongkir','$tanggal_pembelian','$total_pembelian','$nama_kota','$tarif','$alamat_pengiriman') " );
+			$koneksi->query("INSERT INTO pembelian ( id_pelanggan,id_ongkir,tanggal_pembelian,total_pembelian,nama_kota,tarif,alamat_pengiriman,pembayaran)
+				VALUES ('$id_pelanggan','$id_ongkir','$tanggal_pembelian','$total_pembelian','$nama_kota','$tarif','$alamat_pengiriman','$pembayaran') " );
 			
 			//mendapatkan id_pembelian yg baru terjadi
 			$id_pembelian_baru = $koneksi->insert_id;
@@ -142,6 +153,8 @@ if(empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"]))
 			 	$nama = $perproduk['nama_produk'];
 			 	$harga = $perproduk['harga_produk'];
 			 	$berat = $perproduk['berat_produk'];
+			 	$stoklama = $perproduk['stok_produk'];
+			 	$stokbaru = $stoklama-$jumlah;
 
 			 	$subberat = $perproduk['berat_produk']*$jumlah;
 			 	$subharga = $perproduk['harga_produk']*$jumlah;
@@ -149,8 +162,7 @@ if(empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"]))
 					VALUES ('$id_pembelian_baru','$id_produk','$nama','$harga','$berat','$subberat','$subharga','$jumlah') ");
 
 				//skrip update stok
-				$koneksi->query("UPDATE produk SET stok_produk=stok_produk -$jumlah
-					WHERE id_produk='$id_produk'");
+				$koneksi->query("UPDATE produk SET stok_produk=$stokbaru WHERE id_produk='$id_produk'");
 			}
 
 			// mengosongkan keranjang belanja
@@ -171,4 +183,24 @@ if(empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"]))
 </pre> -->
 
 </body>
+<script type="text/javascript">
+	document.querySelector('#pembayaran').addEventListener('change' , function(e){
+		if(e.target.value != 'ambil_sendiri'){
+			document.querySelector('#ongkir').innerHTML = `<select class="form-control" name="id_ongkir">
+						<option value="">Pilih Ongkos Kirim</option>
+						<?php
+						$ambil = $koneksi->query("SELECT * FROM ongkir");
+						while ($perongkir = $ambil->fetch_assoc()){
+						?>
+						<option value="<?php echo $perongkir["id_ongkir"] ?>">
+								<?php echo $perongkir['nama_kota'] ?> -
+							Rp. <?php echo number_format($perongkir['tarif']) ?>
+						</option>
+						<?php } ?>
+					</select>`
+		}else{
+			document.querySelector('#ongkir').innerHTML = ''
+		}
+	})
+</script>
 </html>

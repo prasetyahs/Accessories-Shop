@@ -1,8 +1,15 @@
 <?php
 session_start();
+include 'koneksi.php';
+
 //mendapatkan id produk dari url
 $id_produk = $_GET['id'];
-
+	$ambil = $koneksi->query("SELECT * FROM produk WHERE id_produk=$id_produk");
+	$databarang = $ambil->fetch_assoc();
+	if($databarang['stok_produk'] < 1){
+	 echo "<script>alert('Stok Produk Tidak Cukup');</script>";
+	 echo "<script>location='index.php';</script>";
+}
 
 //jk sudah ada produk itu di keranjang, maka produk itu jumlahnya di +1
 if (isset($_SESSION['keranjang'][$id_produk]))

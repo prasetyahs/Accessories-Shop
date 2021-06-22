@@ -23,7 +23,7 @@ $pecah=$ambil->fetch_assoc();
 <form method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label>Email Pelanggan</label>
-        <input type="email" name="namapelanggan" class="form-control" value="<?php echo $pecah['email_pelanggan']; ?>">
+        <input type="email" name="emailpelanggan" class="form-control" value="<?php echo $pecah['email_pelanggan']; ?>">
     </div>
     <div class="form-group">
         <label>Password Pelanggan</label>
@@ -49,11 +49,11 @@ $pecah=$ambil->fetch_assoc();
 <?php
 if(isset($_POST['ubah']))
 {
-        $koneksi->query("UPDATE pelanggan SET nama_pelanggan='$_POST[namapalanggan]',password_pelanggan='$_POST[passwordpelanggan]',telepon_pelanggan='$_POST[teleponpelanggan]'email_pelanggan='$_POST[emailpelanggan]',alamat_pelanggan='$_POST[alamatpelanggan]'
+        $koneksi->query("UPDATE pelanggan SET nama_pelanggan='$_POST[namapelanggan]',password_pelanggan='$_POST[passwordpelanggan]',telepon_pelanggan='$_POST[teleponpelanggan]',email_pelanggan='$_POST[emailpelanggan]',alamat_pelanggan='$_POST[alamatpelanggan]'
             WHERE id_pelanggan='$_GET[id]'");  
 
 
     echo "<script>alert('Data Pelanggan Telah Di Ubah');</script>";
-    echo "<script>location='index.php?halaman=ongkir';</script>";
+    echo "<script>location='profil.php?id=".$_GET[id]."';</script>";
 }
 ?>

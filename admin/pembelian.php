@@ -13,7 +13,7 @@
 	</thead>
 	<tbody>
 		<?php $nomor=1; ?>
-		<?php $ambil=$koneksi->query("SELECT * FROM pembelian JOIN pelanggan ON pembelian. id_pelanggan=pelanggan.id_pelanggan"); ?>
+		<?php $ambil=$koneksi->query("SELECT * FROM pembelian JOIN pelanggan ON pembelian. id_pelanggan=pelanggan.id_pelanggan order by id_pembelian desc"); ?>
 		<?php while($pecah = $ambil->fetch_assoc()){ ?>
 			<tr>
 				<td><?php echo $nomor; ?></td>
@@ -24,9 +24,7 @@
 				<td>
 					<a href="index.php?halaman=detail&id=<?php echo $pecah['id_pembelian']; ?>" class="btn btn-info">Detail</a>
 
-					<?php if ($pecah['status_pembelian']!=="selesai"): ?>
-						<a href="index.php?halaman=pembayaran&id=<?php echo $pecah['id_pembelian'] ?>" class="btn btn-success">Pembayaran</a>
-				<?php endif ?>
+				<a href="index.php?halaman=pembayaran&id=<?php echo $pecah['id_pembelian'] ?>" class="btn btn-success">Pembayaran</a>
 				</td>
 			</tr>
 		<?php $nomor++; ?>	

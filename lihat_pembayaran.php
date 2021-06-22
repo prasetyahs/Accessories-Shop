@@ -60,7 +60,7 @@ if ($_SESSION["pelanggan"]['id_pelanggan']!==$detbay["id_pelanggan"])
 						<td><?php echo $detbay["tanggal"] ?></td>
 					</tr><tr>
 						<th>Jumlah</th> 			
-						<td>Rp. <?php echo $detbay["jumlah"] ?></td>
+						<td>Rp. <?php echo number_format($detbay["jumlah"])  ?></td>
 					</tr>
 				</table>	
 			</div>

@@ -67,9 +67,9 @@ $detail = $ambil->fetch_assoc();
 				<form method="post">
 					<div class="form-group">
 						<div class="input-group">
-							<input type="number" min="1" class="form-control" name="jumlah" max="<?php echo $detail['stok_produk'] ?>">
+							<input type="number" min="1" class="form-control" name="jumlah" required>
 							<div class="input-group-btn">
-								<button class="btn btn-primary" name="beli">Beli</button>
+								<button class="btn btn-primary" id="beli" name="beli">Beli</button>
 							</div>
 						</div>
 					</div>
@@ -81,11 +81,20 @@ $detail = $ambil->fetch_assoc();
 				{
 					//mendapatkn di keranjang yg diinputkan
 					$jumlah = $_POST["jumlah"];
-					//masukan di keranjang belanja
-					$_SESSION["keranjang"][$id_produk] = $jumlah;
+					// masukan di keranjang belanja
+					
+					$ambil = $koneksi->query("SELECT * FROM produk WHERE id_produk=$id_produk");
+					$databarang = $ambil->fetch_assoc();
+					if($databarang['stok_produk'] < $jumlah){
+						 echo "<script>alert('Stok Produk Tidak Cukup');</script>";	
+						 // return false;
+					}else{
+						$_SESSION["keranjang"][$id_produk] = $jumlah;
+						echo "<script>alert('Produk Telah Masuk Ke Keranjang Belanja');</script>";
+						echo "<script>location='keranjang.php';</script>";
+					}
 
-					echo "<script>alert('Produk Telah Masuk Ke Keranjang Belanja');</script>";
-					echo "<script>location='keranjang.php';</script>";
+
 				}
 				?>
 
@@ -96,5 +105,10 @@ $detail = $ambil->fetch_assoc();
 </section>
 <script src="admin/assets/js/jquery-1.10.2.js"></script>
 <script src="admin/assets/js/bootstrap.min.js"></script>
+<!-- <script type="text/javascript">
+	document.querySelector('#beli').addEventListener('click', {
+		alert('okok')
+	})
+</script> -->
 </body>
 </html>

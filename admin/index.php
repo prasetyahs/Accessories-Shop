@@ -58,7 +58,7 @@ font-size: 16px;"> ADMIN &nbsp; <a href="logout.php" class="btn btn-danger squar
                     <img src="assets/img/me.jpg" class="user-image img-responsive"/>
 					</li>
                     <li>
-                        <a href="index.php"><i class="fa fa-home "></i> Home</a>
+                        <a href="index.php"><i class="fa fa-home "></i> Dashboard</a>
                     </li>
                     <li>
                         <a href="index.php?halaman=kategori"><i class="fa fa-tags"></i> Kategori</a>
@@ -67,7 +67,7 @@ font-size: 16px;"> ADMIN &nbsp; <a href="logout.php" class="btn btn-danger squar
                         <a href="index.php?halaman=produk"><i class="fa fa-dropbox"></i> Produk</a>
                     </li>
                     <li>
-                        <a href="index.php?halaman=pembelian"><i class="fa fa-shopping-cart"></i> Pembelian</a>
+                        <a href="index.php?halaman=pembelian"><i class="fa fa-shopping-cart"></i> Transaksi Pembelian</a>
                     </li>
                      <li>
                         <a href="index.php?halaman=laporan_pembelian"><i class="fa fa-list-alt"></i> Laporan</a>

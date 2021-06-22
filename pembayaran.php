@@ -46,23 +46,24 @@ if ($id_pelanggan_login !==$id_pelanggan_beli)
 
 	<div class="container">
 		<h2>Konfirmasi Pembayaran</h2>
-		<p>Kirim Bukti Pembayaran A</p>
+		<p>Kirim Bukti Pembayaran</p>
 		<div class="alert alert-info">Total Tagihan Anda <strong>Rp. <?php echo number_format($detpem["total_pembelian"]) ;?></strong></div>
 
 
 		<form method="post" enctype="multipart/form-data">
 			<div class="form-group">
 				<label>Nama Penyetor</label>
-				<input type="text" class="form-control" name="nama">
+				<input type="text" class="form-control" name="nama" value="<?php echo $_SESSION['pelanggan']['nama_pelanggan'] ?>">
 			</div>
 			<div class="form-group">
 				<label>Bank</label>
 				<input type="text" class="form-control" name="bank">
 		</form>
-		<div class="form-group">
-				<label>Jumlah</label>
-				<input type="text" class="form-control" name="jumlah">
-	</div>
+		<label>Jumlah</label>
+				<div class="input-group">
+				 <span class="input-group-addon">Rp</span>
+				<input type="text" class="form-control" name="jumlah" value="<?php echo ($detpem["total_pembelian"]) ;?>">
+				</div>
 	<div class="form-group">
 				<label>Foto Bukti</label>
 				<input type="file" class="form-control" name="bukti">

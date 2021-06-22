@@ -10,10 +10,22 @@ include 'koneksi.php';
 	<title>Toko Fauzan Sparepart</title>
 	<link rel="stylesheet" href="admin/assets/css/bootstrap.css">
 	<link rel="stylesheet" href="admin/assets/css/font-awesome.css">
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-
+<div class="jumbotron jumbotron-fluid text-center">
+        <div class="container">
+          <h1 class="display-4"><span class="font-weight-bold">Fauzan Sparepart</span></h1>
+          <hr>
+          <p class="lead font-weight-bold">Menjual Suku Cadang  & Mobil Bekas</p>
+        <div class="judul text-center mt-7">
+          <h3 class="font-weight-bold"></h3>
+          <h5> JL.PENGAIRAN BLOK D NO 103, SUMUR BATU, BANTAR GEBANG, BEKASI
+          <br>Buka Jam <strong>08:00 - 21:00</strong></h5>
+        </div>
+        </div>
+</div>
 
 <?php include 'menu.php'; ?>
 
@@ -30,26 +42,14 @@ include 'koneksi.php';
   <div class="carousel-inner">
     <div class="item active">
       <img src="images1.jpg" alt="">
-      <div class="carousel-caption">
-        <h3>First slide label</h3>
-    	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      </div>
     </div>
 
     <div class="item">
       <img src="images2.png" alt="">
-      <div class="carousel-caption">
-        <h3>First slide label</h3>
-    	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      </div>
     </div>
 
     <div class="item">
       <img src="images.png" alt="">
-      <div class="carousel-caption">
-        <h3>First slide label</h3>
-    	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      </div>
     </div>
   </div>
 
@@ -70,26 +70,23 @@ include 'koneksi.php';
 
 		<div class="row">
 
-			<?php $ambil = $koneksi->query("SELECT * FROM Produk "); ?>
+			<?php $ambil = $koneksi->query("SELECT * FROM Produk order by id_produk desc"); ?>
 			<?php while($perproduk = $ambil->fetch_assoc()){ ?>
 			
-			<div class="col-md-3">
+			<div class="col-md-3" style="margin-bottom: 10px;">
 				<div class="thumbnail">
 					<img src="foto_produk/<?php echo $perproduk['foto_produk']; ?>" alt="..." style="width: 100%;height: 200px;">
-					<div class="caption">
-						<h3><?php echo $perproduk['nama_produk']; ?></h3>
-						<h5><?php echo number_format($perproduk['harga_produk']); ?></h5>
-						<a href="beli.php?id=<?php echo $perproduk['id_produk']; ?>" class="btn btn-primary">Beli</a>
-						<a href="detail.php?id=<?php echo $perproduk["id_produk"] ?>" class="btn btn-default">Detail</a>
-					</div> 
 				</div>
+				<div class="caption">
+					<h3 class="produk-title"><?php echo $perproduk['nama_produk']; ?></h3>
+					<h5>Rp<?php echo number_format($perproduk['harga_produk']); ?></h5>
+					<a href="beli.php?id=<?php echo $perproduk['id_produk']; ?>" class="btn btn-primary">Beli</a>
+					<a href="detail.php?id=<?php echo $perproduk["id_produk"] ?>" class="btn btn-default">Detail</a>
+				</div> 
 			</div>		
-		<?php } ?>
-
-
+			<?php } ?>
 		</div>
 	</div>
-	
 </section>
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d291.88723480081717!2d107.01031598044236!3d-6.349579285936168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69918e83cf3e83%3A0xf6ddcc60da237901!2sGubug%20Dzeko%20581%20becipok!5e0!3m2!1sid!2sid!4v1622550903913!5m2!1sid!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 <div class="bg-info">
@@ -110,9 +107,9 @@ include 'koneksi.php';
 			</div>
 			<div class="col-md-3">
 				<h3>MEDIA SOSIAL</h3>
-				<a href=""><i class="fa fa-facebook-square"></i></a>
+				<a href="https://www.facebook.com/trijoko.santoso"  target="_blank"><i class="fa fa-facebook-square"></i></a>
 				<a href=""><i class="fa fa-twitter-square"></i></a>
-				<a href=""><i class="fa fa-instagram"></i></a>
+				<a href="https://www.instagram.com/fauzanoz_/" target="_blank"><i class="fa fa-instagram"></i></a>
 			</div>
 		</div>
 	</div>

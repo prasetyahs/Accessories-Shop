@@ -3,7 +3,11 @@
 $ambil = $koneksi->query("SELECT * FROM pembelian JOIN pelanggan 
 	ON pembelian.id_pelanggan=pelanggan.id_pelanggan 
 	WHERE pembelian.id_pembelian='$_GET[id]'");
+
+$ambil2 = $koneksi->query("SELECT * FROM pembayaran WHERE id_pembelian='$_GET[id]'");
+
 $detail = $ambil->fetch_assoc();
+$detail2 = $ambil2->fetch_assoc();
 ?>
 <!-- <pre><?php print_r($detail); ?></pre> -->
 
@@ -11,10 +15,10 @@ $detail = $ambil->fetch_assoc();
 <div class="row">
 		<div class="col-md-4">
 			<h3>Pembelian</h3>
-			<strong>No. Pembelian : <?php echo number_format($detail['total_pembelian']); ?></strong><br>
+			<strong>No. Pembelian : <?php echo number_format($detail['id_pembelian']); ?></strong><br>
 			Tanggal : <?php echo $detail['tanggal_pembelian']; ?><br>
 			Total : Rp. <?php echo number_format($detail['total_pembelian']); ?><br>
-			Status: <?php echo $detail["status_pembelian"]; ?>
+			Metode Pembayaran : <?php echo $detail['pembayaran']; ?>
 
 		</div>
 		<div class="col-md-4">
@@ -30,6 +34,7 @@ $detail = $ambil->fetch_assoc();
 		<h3>Pengiriman</h3>
 		<strong><?php echo $detail['nama_kota']; ?></strong>
 		Ongkos Kirim : Rp. <?php echo number_format($detail['tarif']); ?> <br>
+		Status: <?php echo $detail["status_pembelian"]; ?> <br>
 		Alamat : <?php echo $detail['alamat_pengiriman']; ?>
 		</div>
 </div>
@@ -61,4 +66,10 @@ $detail = $ambil->fetch_assoc();
 		<?php $nomor++; ?>
 		<?php } ?>
 	</tbody>
+	<tr>
+			<th colspan="4">Total Belanja</th>
+			<th>Rp. <?php echo number_format($detail['total_pembelian']) ?></th>
+	</tr>
 </table>
+<div class="col-md-6">
+				<img src="../bukti_pembayaran/<?php echo $detail2["bukti"] ?>" alt="" class="img-responsive" width="300" >

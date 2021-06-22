@@ -43,6 +43,7 @@ if(empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"]))
 			</thead>
 			<body>
 				<?php $nomor=1; ?>
+
 				<?php foreach ($_SESSION["keranjang"] as $id_produk => $jumlah): ?> 
 				<!-- menalpilkan produk yang sedang diperulangan berdasarkan id_produk -->
 				<?php

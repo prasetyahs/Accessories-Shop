@@ -21,6 +21,9 @@ while($pecah = $ambil->fetch_assoc())
 	<meta charset="utf-8">
 	<title>Pencarian</title>
 	<link rel="stylesheet" href="admin/assets/css/bootstrap.css">
+	<style type="text/css">h3.produk-title {
+    height: 100px;
+}</style>
 </head>
 <body>
 <?php include 'menu.php'; ?>
@@ -37,9 +40,9 @@ while($pecah = $ambil->fetch_assoc())
 
 			<div class="col-md-3">
 				<div class="thumbnail">
-					<img src="foto_produk/<?php echo $value['foto_produk']  ?>" alt="" class="img-responsive">
+					<img src="foto_produk/<?php echo $value['foto_produk']  ?>" alt="" class="img-responsive" style="width: 100%;height: 200px;">
 					<div class="caption">
-						<h3><?php echo $value["nama_produk"] ?></h3>
+						<h3 class="produk-title"><?php echo $value["nama_produk"] ?></h3>
 						<h5>RP. <?php echo number_format($value['harga_produk']) ?></h5>
 						<a href="beli.php?id=<?php echo $value["id_produk"]; ?>" class="btn btn-primary">Beli</a>
 						<a href="detail.php?id=<?php echo $value["id_produk"]; ?>" class="btn btn-default">Detail</a>

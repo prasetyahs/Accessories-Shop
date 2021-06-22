@@ -42,7 +42,7 @@ if (!isset($_SESSION["pelanggan"]) OR empty($_SESSION["pelanggan"]))
 				//mendapatkan ID pelanggan yang login dari session
 				$id_pelanggan = $_SESSION['pelanggan']['id_pelanggan'];
 
-				$ambil = $koneksi->query("SELECT * FROM pembelian WHERE id_pelanggan='$id_pelanggan'");
+				$ambil = $koneksi->query("SELECT * FROM pembelian WHERE id_pelanggan='$id_pelanggan' order by id_pembelian desc");
 				while($pecah = $ambil->fetch_assoc()) {
 				?>
 				<tr>
@@ -56,13 +56,20 @@ if (!isset($_SESSION["pelanggan"]) OR empty($_SESSION["pelanggan"]))
 				<td>Rp. <?php echo number_format($pecah["total_pembelian"]) ;?></td>
 				<td>
 					<a href="nota.php?id=<?php echo $pecah["id_pembelian"] ?>" class="btn btn-info">Nota</a>
+					<?php if ($pecah['pembayaran']=="transfer"): ?>
 					<?php if ($pecah['status_pembelian']=="pending"): ?>
 					<a href="pembayaran.php?id=<?php echo $pecah["id_pembelian"]; ?> " class="btn btn-success">
-					Input Pembayaran
+					Konfirmasi Pembayaran
 					</a>
 					<?php else: ?>
 					<a href="lihat_pembayaran.php?id=<?php echo $pecah["id_pembelian"]; ?>" class="btn btn-warning">
 						Lihat Pembayaran
+					</a>
+				<?php endif ?>
+				<?php endif ?>
+				<?php if ($pecah['status_pembelian']=="pending"): ?>
+				<a href="batal_beli.php?id=<?php echo $pecah["id_pembelian"]; ?> " class="btn btn-danger">
+					Batal Beli
 					</a>
 				<?php endif ?>
 				</td>
