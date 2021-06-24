@@ -62,7 +62,7 @@ if(empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"]))
 					<td><?php echo $jumlah; ?></td>
 					<td><?php echo number_format($subharga); ?></td>
 					<td>
-						<a href="hapuskeranjang.php?id=<?php echo $id_produk ?>" class="btn btn-danger btn-xs">hapus</a>
+						<a href="hapuskeranjang.php?id=<?php echo $id_produk ?>" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i>hapus</a>
 					</td>
 					
 				</tr>
@@ -71,8 +71,8 @@ if(empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"]))
 			</body>
 		</table>
 
-		<a href="index.php" class="btn btn-default">Lanjutkan Belanja</a>
-		<a href="checkout.php" class="btn btn-primary">Bayar Sekarang</a>
+		<a href="index.php" class="btn btn-warning"><i class="glyphicon glyphicon-plus"></i>Lanjutkan Belanja</a>
+		<a href="checkout.php" class="btn btn-primary"><i class="glyphicon glyphicon-shopping-cart"></i>Checkout</a>
 	</div>
 </section>
 

@@ -28,7 +28,8 @@ if(!isset($_SESSION['admin']))
     <link href="assets/css/custom.css" rel="stylesheet" />
      <!-- GOOGLE FONTS-->
    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    <!-- JQUERY SCRIPTS -->
+   <link rel="stylesheet" type="text/css" href="style.css">
+   <!-- JQUERY SCRIPTS -->
     <script src="assets/js/jquery-1.10.2.js"></script>
 </head>
 <body>
@@ -41,12 +42,12 @@ if(!isset($_SESSION['admin']))
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">Fauzan Sparepart</a> 
+                <a class="navbar-brand" href="index.php" >Fauzan Sparepart</a> 
             </div>
-<div style="color: white;
+<div style="color: lightblue;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"> ADMIN &nbsp; <a href="logout.php" class="btn btn-danger square-btn-adjust">Logout</a> 
+font-size: 16px;"> Selamat Datang, <strong><?php echo $_SESSION['admin']['nama_lengkap'] ?>&nbsp; | &nbsp; <a href="logout.php" class="btn btn-danger square-btn-adjust">Logout</a> 
 </div>
         </nav>   
            <!-- /. NAV TOP  -->

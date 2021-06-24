@@ -27,8 +27,8 @@ while($tiap = $ambil->fetch_assoc())
 			<td><?php echo $key+1 ?></td>
 			<td><?php echo $value["nama_kategori"] ?></td>
 			<td>
-				<a href="index.php?halaman=ubah_kategori&id=<?php echo $value['id_kategori'] ?>" class="btn btn-warning">Ubah</a>
-				<a href="index.php?halaman=hapus_kategori&id=<?php echo $value['id_kategori'] ?>" class="btn btn-danger">Hapus</a>
+				<a href="index.php?halaman=ubah_kategori&id=<?php echo $value['id_kategori'] ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i>Ubah</a>
+				<a href="index.php?halaman=hapus_kategori&id=<?php echo $value['id_kategori'] ?>" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i>Hapus</a>
 			</td>
 		</tr>
 		<?php endforeach ?>

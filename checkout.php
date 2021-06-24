@@ -114,7 +114,7 @@ if(empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"]))
 				<label>Alamat Lengkap Pengiriman</label>
 				<textarea class="form-control" name="alamat_pengiriman" placeholder="Masukan Alamat Lengkap Pengiriman (Termasuk Kode Pos)"></textarea>
 			</div>
-			<button class="btn btn-primary" name="checkout">Checkout</button>
+			<button class="btn btn-primary" name="checkout"><i class="glyphicon glyphicon-shopping-cart"></i>Buat Pesanan</button>
 		</form>
 
 		<?php 

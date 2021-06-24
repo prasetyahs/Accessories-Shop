@@ -27,7 +27,7 @@ if (isset($_POST["kirim"]))
 <form method="post">
 	<div class="col-md-3">
 		<div class="form-group">
-			<label>Dari anggal </label>
+			<label>Dari Tanggal </label>
 			<input type="date" class="form-control" name="tglm" value="<?php echo $tgl_mulai ?>">
 		</div>
 	</div>
@@ -41,7 +41,7 @@ if (isset($_POST["kirim"]))
 		<div class="form-group">
 			<label>Status</label>
 			<select class="form-control" name="status"> 
-			<option value="pilih status">Pilih Status</option>
+			<option value="pilih status" disabled selected hiden>Pilih Status</option>
 			<option value="Menunggu Pembayaran" <?php echo $status=="Menunggu Pembayaran" ? "selected":"" ?>> Menunggu Pembayaran </option>
 			<option value="Proses" <?php echo $status=="Proses" ? "selected":"" ?>>Proses  </option>
 			<option value="Selesai" <?php echo $status=="Selesai" ? "selected":"" ?>>Selesai  </option>

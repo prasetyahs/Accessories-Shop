@@ -22,10 +22,10 @@
 				<td><?php echo $pecah['status_pembelian']; ?></td>
 				<td><?php echo $pecah['total_pembelian']; ?></td>
 				<td>
-					<a href="index.php?halaman=detail&id=<?php echo $pecah['id_pembelian']; ?>" class="btn btn-info">Detail</a>
+					<a href="index.php?halaman=detail&id=<?php echo $pecah['id_pembelian']; ?>" class="btn btn-info"><i class="glyphicon glyphicon-eye-open"></i>Detail</a>
 
 					<?php if ($pecah['status_pembelian']!=='batal'): ?>
-						<a href="index.php?halaman=pembayaran&id=<?php echo $pecah['id_pembelian'] ?>" class="btn btn-success">Pembayaran</a>
+						<a href="index.php?halaman=pembayaran&id=<?php echo $pecah['id_pembelian'] ?>" class="btn btn-success"><i class="glyphicon glyphicon-credit-card"></i>Cek Pembayaran</a>
 				<?php endif ?>
 				</td>
 			</tr>

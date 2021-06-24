@@ -20,8 +20,8 @@
 			<td><?php echo $pecah['nama_kota']; ?></td>
 			<td><?php echo $pecah['tarif']; ?></td>
 			<td>
-				<a href="index.php?halaman=ubah_ongkir&id=<?php echo $pecah['id_ongkir'] ?>" class="btn btn-warning">Ubah</a>
-				<a href="index.php?halaman=hapus_ongkir&id=<?php echo $pecah['id_ongkir'] ?>" class="btn btn-danger">Hapus</a>
+				<a href="index.php?halaman=ubah_ongkir&id=<?php echo $pecah['id_ongkir'] ?>" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i>Ubah</a>
+				<a href="index.php?halaman=hapus_ongkir&id=<?php echo $pecah['id_ongkir'] ?>" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i>Hapus</a>
 			</td>
 		</tr>
 
