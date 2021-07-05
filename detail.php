@@ -69,7 +69,7 @@ $detail = $ambil->fetch_assoc();
 						<div class="input-group">
 							<input type="number" min="1" class="form-control" name="jumlah" required>
 							<div class="input-group-btn">
-								<button class="btn btn-primary" id="beli" name="beli">Beli</button>
+								<button class="btn btn-primary" id="beli" name="beli"><i class="glyphicon glyphicon-shopping-cart"></i>Beli</button>
 							</div>
 						</div>
 					</div>

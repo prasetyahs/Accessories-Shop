@@ -1,5 +1,8 @@
 <h2>Data Pembelian</h2>
-
+<form action="pencarian.php" method="get" class="navbar-form navbar-right">
+		<input type="text" class="form-control" name="keyword" required>
+		<button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i> Cari</button>
+</form>
 <table class="table table-bordered">
 	<thead>
 		<tr>
@@ -13,7 +16,13 @@
 	</thead>
 	<tbody>
 		<?php $nomor=1; ?>
-		<?php $ambil=$koneksi->query("SELECT * FROM pembelian JOIN pelanggan ON pembelian. id_pelanggan=pelanggan.id_pelanggan order by id_pembelian desc"); ?>
+		<?php
+		$keyword = @$_GET['keyword'];
+		$ambil=$koneksi->query("SELECT * FROM pembelian JOIN pelanggan ON pembelian.id_pelanggan=pelanggan.id_pelanggan order by id_pembelian desc"); 
+		if (isset($keyword)) {
+			$ambil=$koneksi->query("SELECT * FROM pembelian JOIN pelanggan ON pembelian.id_pelanggan=pelanggan.id_pelanggan WHERE nama_pelanggan LIKE '%$keyword%' order by id_pembelian desc");
+		}
+		?>
 		<?php while($pecah = $ambil->fetch_assoc()){ ?>
 			<tr>
 				<td><?php echo $nomor; ?></td>

@@ -1,4 +1,4 @@
-<h2>Selamat Datang Di Administrator</h3>
+<h2>Selamat Datang Di Dashboard Toko</h3> <br>
 <?php 
 
 $kategori = $koneksi->query("SELECT * FROM kategori");
@@ -23,52 +23,70 @@ $jml_selesai = $selesai->num_rows;
 $batal = $koneksi->query("SELECT * FROM pembelian WHERE status_pembelian = 'batal' ");
 $jml_batal = $batal->num_rows;
 
+//grafik batang
+$query_namaproduk = $koneksi->query("SELECT * FROM pembelian_produk GROUP BY nama");
+while ($data_namaproduk = $query_namaproduk->fetch_assoc()) {
+	$nama_produk[] = $data_namaproduk['nama'];
+	$nm_prd = $data_namaproduk['nama'];
+	$query_jmlh = $koneksi->query("SELECT SUM(jumlah) as total_jumlah FROM pembelian_produk WHERE nama='$nm_prd'");
+	$jumlah_pembelian[] = $query_jmlh->fetch_assoc()['total_jumlah'];
 
-
+}
+// print_r($jumlah_pembelian);die;
 ?>
 <div class="row">
 	<div class="col-md-3">
 		<div class="panel panel-default text-center"> 
-			<div class="panel-heading">Jumlah Kategori</div>
+			
 			<div class="panel-body bg-success">
-				<i class="fa fa-tags " style="font-size:30px;float:left;"></i>
+				<a href="index.php?halaman=kategori" >
+				Jumlah Kategori
+				<i class="fa fa-tags " style="font-size:100px;float:left;"></i>
 				<h2 style="float:right;margin:0;"><?php echo $jml_kategori ?></h2>
+					</a>
 			</div>
-			<a href="index.php?halaman=kategori" ><div class="panel-footer" >Selengkapnya</div></a>
 		</div>
 	</div>
+
 	<div class="col-md-3">
 		<div class="panel panel-default text-center">
-			<div class="panel-heading">Jumlah Produk</div>
+			<a href="index.php?halaman=produk">
 			<div class="panel-body bg-info">
-				<i class="fa fa-dropbox " style="font-size:30px;float:left;"></i>
+				Jumlah Produk
+				<i class="fa fa-dropbox " style="font-size:100px;float:left;"></i>
 				<h2 style="float:right;margin:0;"><?php echo $jml_produk ?></h2>
 			</div>
-			<a href="index.php?halaman=produk"><div class="panel-footer">Selengkapnya</div></a>
+			</a>
 		</div>
 	</div>
+
 	<div class="col-md-3">
 		<div class="panel panel-default text-center">
-			<div class="panel-heading">Jumlah Pembellian</div>
+			<a href="index.php?halaman=pembelian">
 			<div class="panel-body bg-warning">
-				<i class="fa fa-list-alt " style="font-size:30px;float:left;"></i>
+				Jumlah Pembelian
+				<i class="fa fa-shopping-cart" style="font-size:100px;float:left;"></i>
 				<h2 style="float:right;margin:0;"><?php echo $jml_pembelian ?></h2>
 			</div>
-			<a href="index.php?halaman=pembelian"><div class="panel-footer">Selengkapnya</div></a>
+			</a>
 		</div>
 	</div>
+	
 	<div class="col-md-3">
 		<div class="panel panel-default text-center">
-			<div class="panel-heading">Jumlah Pelanggan</div>
-			<div class="panel-body bg-danger">
-				<i class="fa fa-user " style="font-size:30px;float:left;"></i>
+			<a href="index.php?halaman=pelanggan">
+				<div class="panel-body bg-danger">
+			Jumlah Pelanggan
+			
+				<i class="fa fa-user " style="font-size:100px;float:left;"></i>
 				<h2 style="float:right;margin:0;"><?php echo $jml_pelanggan ?></h2>
 			</div>
-			<a href="index.php?halaman=pelanggan"><div class="panel-footer">Selengkapnya </div></a>
+			</a>
 		</div>
 	</div> 
 	<?php if ($_SESSION['admin']['username']=='owner') {
-		echo '&nbsp; &nbsp; Grafik Status Pembelian<canvas id="oilChart" width="500" height="150"></canvas>';
+		echo '&nbsp; &nbsp; Grafik Status Pembelian<canvas id="oilChart" width="500" height="150"></canvas>
+			&nbsp; &nbsp; Grafik Penjualan Produk<canvas id="myChart"></canvas>';
 	}
 	?>
 <div>
@@ -106,5 +124,44 @@ var pieChart = new Chart(oilCanvas, {
   type: 'pie',
   data: oilData
 });
+</script>
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'bar',
+        // The data for our dataset
+        data: {
+            labels: ["<?php echo implode('","', $nama_produk) ?>"],
+            datasets: [{
+                label:'Data Penjualan Produk ',
+                backgroundColor: [
+                "#FF6384",
+                "#63FF84",
+                "#8463FF",
+                "#fe2f17",
+                "#f9d100",
+                "#73d4f5",
+                "#702c16",
+                "#303262",
+                "#f7448b",
+                "#ed6a40",
+                ], 
+                borderColor: ['rgb(255, 99, 132, 86, 56, 388)'],
+                data: [<?php echo implode(',', $jumlah_pembelian) ?>]
+            }]
+        },
+
+        // Configuration options go here
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
+    });
 </script>
 </div>

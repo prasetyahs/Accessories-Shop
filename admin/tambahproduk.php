@@ -8,9 +8,9 @@ while($tiap = $ambil->fetch_assoc())
 	$datakategori[] = $tiap;
 }
 
-echo "<pre>";
-print_r ($datakategori);
-echo "</pre>";
+// echo "<pre>";
+// print_r ($datakategori);
+// echo "</pre>";
 
 ?>
 <h2>Tambah Produk</h2>
@@ -28,6 +28,10 @@ echo "</pre>";
 			<option value="<?php echo $value["id_kategori"] ?>"><?php echo $value["nama_kategori"] ?></option>
 			<?php endforeach ?>
 		</select>
+	</div>
+		<div class="form-group">
+		<label>Harga Beli (Rp)</label>
+		<input type="number" class="form-control" name="harga_beli">
 	</div>
 	<div class="form-group">
 		<label>Harga Barang (Rp)</label>
@@ -63,8 +67,8 @@ if(isset($_POST['save']))
 	$namanamafoto=$_FILES['foto']['name'];
 	$lokasilokasifoto=$_FILES['foto']['tmp_name'];
 	move_uploaded_file($lokasilokasifoto[0], "../foto_produk/".$namanamafoto[0]);
-	$koneksi->query("INSERT INTO produk (nama_produk,harga_produk,berat_produk,foto_produk,deskripsi_produk,stok_produk,id_kategori)
-		VALUES('$_POST[nama]','$_POST[harga]','$_POST[berat]','$namanamafoto[0]','$_POST[deskripsi]','$_POST[stok]','$_POST[id_kategori]')");
+	$koneksi->query("INSERT INTO produk (nama_produk,harga_beli,harga_produk,berat_produk,foto_produk,deskripsi_produk,stok_produk,id_kategori)
+		VALUES('$_POST[nama]','$_POST[harga_beli]','$_POST[harga]','$_POST[berat]','$namanamafoto[0]','$_POST[deskripsi]','$_POST[stok]','$_POST[id_kategori]')");
 
 	//mendapatkan id_produk barusan
 	$id_produk_barusan = $koneksi->insert_id;
@@ -83,9 +87,9 @@ if(isset($_POST['save']))
 	echo "<div class='alert alert-info'>Data tersimpan</div>";
 	echo "<meta http-equiv='refresh' content='1;url=index.php?halaman=produk'>";
 
-// 	echo "<pre>";
-// 	print_r ($_FILES["foto"]);
-// 	echo "</pre>";
+	// echo "<pre>";
+	// print_r ($_FILES["foto"]);
+	// echo "</pre>";
 }
 
 ?>

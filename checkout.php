@@ -187,7 +187,7 @@ if(empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"]))
 	document.querySelector('#pembayaran').addEventListener('change' , function(e){
 		if(e.target.value != 'ambil_sendiri'){
 			document.querySelector('#ongkir').innerHTML = `<select class="form-control" name="id_ongkir">
-						<option value="">Pilih Ongkos Kirim</option>
+						<option value=""disabled selected hiden>Pilih Ongkos Kirim</option>
 						<?php
 						$ambil = $koneksi->query("SELECT * FROM ongkir");
 						while ($perongkir = $ambil->fetch_assoc()){

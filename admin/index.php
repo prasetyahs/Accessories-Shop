@@ -47,7 +47,7 @@ if(!isset($_SESSION['admin']))
 <div style="color: lightblue;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"> Selamat Datang, <strong><?php echo $_SESSION['admin']['nama_lengkap'] ?>&nbsp; | &nbsp; <a href="logout.php" class="btn btn-danger square-btn-adjust">Logout</a> 
+font-size: 16px;"> Selamat Datang, <strong><?php echo $_SESSION['admin']['nama_lengkap'] ?>&nbsp; | &nbsp; <a href="logout.php" class="btn btn-danger square-btn-adjust"><i class="glyphicon glyphicon-log-out"></i></a> 
 </div>
         </nav>   
            <!-- /. NAV TOP  -->
@@ -192,6 +192,10 @@ font-size: 16px;"> Selamat Datang, <strong><?php echo $_SESSION['admin']['nama_l
                     {
                         include "tambah_kategori.php";
                     }                    
+                        elseif ($_GET['halaman']=="pencarian")
+                    {
+                        include "pencarian.php";
+                    }     
                 }
                 else
                 {

@@ -41,10 +41,10 @@ $ambil = $koneksi->query("SELECT * FROM pembelian pm LEFT JOIN pelanggan pl ON p
 		<font size="7">FAUZAN SPAREPART</font>
 		<br>
 		Jl.Pengairan No.103, Bantar Gebang, Kota Bekasi,17154 </div>
-		
-
 	</div>
 	</div>
+	<br>
+	<br>
 
 	<table Width= "100%" class="table table-bordered" border="1">
 	<thead>
@@ -54,6 +54,7 @@ $ambil = $koneksi->query("SELECT * FROM pembelian pm LEFT JOIN pelanggan pl ON p
 			<th>Tanggal</th>
 			<th>Jumlah</th>
 			<th>Status</th>
+			<th>Keterangan</th>
 		</tr>
 	</thead>
 	<tbody>';
@@ -77,8 +78,7 @@ $ambil = $koneksi->query("SELECT * FROM pembelian pm LEFT JOIN pelanggan pl ON p
 
 		 <tr>
 			 <th colspan="3">Total. </th>
-			 <th colspan="2">Rp. '.number_format($total).'</th>
-			 <th></th>
+			 <th colspan="3">Rp. '.number_format($total).'</th>
 		 </tr>
 	 </tfoot>
  	</table>

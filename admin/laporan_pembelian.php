@@ -89,3 +89,5 @@ if (isset($_POST["kirim"]))
 </table>
 
 <a href="download_laporan.php?tglm=<?php echo $tgl_mulai ?>&tgls=<?php echo $tgl_selesai ?>&status=<?php echo $status ?> ">Download Laporan(PDF)</a>
+<br>
+<a href="report_pembelian_excel.php">Download Laporan(Excel)</a>
