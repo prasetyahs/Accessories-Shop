@@ -14,7 +14,7 @@ if (!isset($_SESSION["pelanggan"]) OR empty($_SESSION["pelanggan"]))
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Toko Fauzan Sparepart</title>
+	<title>Langgan Variasi Motor</title>
 	<link rel="stylesheet" href="admin/assets/css/bootstrap.css">
 </head>
 <body>

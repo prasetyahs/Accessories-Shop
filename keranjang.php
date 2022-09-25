@@ -46,7 +46,7 @@ if(empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"]))
 				?>
 
 				<?php foreach ($_SESSION["keranjang"] as $id_produk => $jumlah): ?> 
-				<!-- menalpilkan produk yang sedang diperulangan berdasarkan id_produk -->
+				<!-- menampilkan produk yang sedang diperulangan berdasarkan id_produk -->
 				<?php
 				$ambil = $koneksi->query("SELECT * FROM produk
 					WHERE id_produk= $id_produk");

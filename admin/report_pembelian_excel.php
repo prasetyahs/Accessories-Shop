@@ -7,7 +7,7 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 $spreadsheet = new Spreadsheet();
 $sheet = $spreadsheet->getActiveSheet();
-$sheet->setCellValue('B2','Laporan Keseluruhan Pembelian Toko Fauzan Sparepart');
+$sheet->setCellValue('B2','Laporan Keseluruhan Pembelian Toko Langgan Variasi Motor');
 $sheet->setCellValue('A5', 'No');
 $sheet->setCellValue('B5', 'Nama Pelanggan');
 $sheet->setCellValue('C5', 'Tanggal');

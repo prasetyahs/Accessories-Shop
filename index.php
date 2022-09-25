@@ -7,10 +7,10 @@ include 'koneksi.php';
 <html>
 <head>
 
-	<title>Toko Fauzan Sparepart</title>
+	<title>Langgan Variasi Motor</title>
 	<link rel="stylesheet" href="admin/assets/css/bootstrap.css">
 	<link rel="stylesheet" href="admin/assets/css/font-awesome.css">
-	<link rel="stylesheet" type="text/css" href="admin/assets/DataTables/datatables.min.css">
+	<link rel="stylesheet" type="text/c ss" href="admin/assets/DataTables/datatables.min.css">
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -40,6 +40,18 @@ include 'koneksi.php';
     <div class="item">
       <img src="images.png" alt="">
     </div>
+
+	<div class="item">
+      <img src="tokopedia1.jpg" alt="">
+    </div>
+
+	<div class="item">
+      <img src="tokopedia.jpg" alt="">
+    </div>
+
+	<div class="item">
+      <img src="tokopedia2.jpg" alt="">
+    </div>
   </div>
 
   <!-- Controls -->
@@ -56,7 +68,6 @@ include 'koneksi.php';
 <section class="konten">
 	<div class="container">
 		<br>
-				<a class= "btn btn-danger" href="katalog.pdf"><i class=" glyphicon glyphicon-eye-open"></i>  Lihat Katalog Toko</a>
 		<h1>Produk Terbaru</h1>
 
 		<div class="row">
@@ -96,7 +107,7 @@ include 'koneksi.php';
 				<li class="page-item">
 					<a class="page-link" <?php if($halaman > 1){ echo "href='?halaman=$Previous'"; } ?>>Previous</a>
 				</li>
-				<?php 
+				<?php 	
 				for($x=1;$x<=$total_halaman;$x++){
 					?> 
 					<li class="page-item"><a class="page-link" href="?halaman=<?php echo $x ?>"><?php echo $x; ?></a></li>
@@ -111,31 +122,29 @@ include 'koneksi.php';
 	</div>
 
 </section>
-
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d291.88723480081717!2d107.01031598044236!3d-6.349579285936168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69918e83cf3e83%3A0xf6ddcc60da237901!2sGubug%20Dzeko%20581%20becipok!5e0!3m2!1sid!2sid!4v1622550903913!5m2!1sid!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+<iframe width="1700" height="800" border="1" src="https://www.youtube.com/embed/1XWXYqaps1s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+ <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.180852189921!2d109.12436121468934!3d-6.868920495036221!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6fb9d86e593733%3A0xde90bae7cf25a361!2sJl.%20Kolonel%20Sugiono%20No.50%2C%20Pekauman%2C%20Kec.%20Tegal%20Bar.%2C%20Kota%20Tegal%2C%20Jawa%20Tengah%2052133!5e0!3m2!1sid!2sid!4v1640916212159!5m2!1sid!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 <div class="bg-info">
 	<div class="container ">
 		<div class="row" style="padding: 7em 0;">
 			<div class="col-md-3">
-				<h3> <a href="index.php">FAUZAN SPAREPART</a></h3>
+				<h3> <a href="index.php">Langgan Variasi Motor</a></h3>
 				<p> | Copyright © 2021 | </p>
-				<img src="admin/assets/img/me.jpg" width="100">
+				<img src="admin/assets/img/logo.png" width="200">
 			</div>
 			<div class="col-md-3">
 				<h3>LOKASI</h3>
-				<p> Bengkel : <br> Jalan Pengairan 37 Blok D No 103,  <br> Kel. Sumur Batu, Kec. Bantar Gebang, Kota Bekasi, Provinsi Jawa Barat <br>
-				Buka Jam 08.00 - 21.00
-				</p>
+				<p> Bengkel : <br> <a href="https://g.page/langgan-variasi?share"  target="_blank"> Jl. Kolonel Sugiono No.50  <br> Pekauman, Kec. Tegal Bar., Kota Tegal, Jawa Tengah 52133 </a> <br> Buka Jam 08.00 - 17.00</p>
 			</div>
 			<div class="col-md-3">
 				<h3>INFORMASI LENGKAP</h3>
-				<p>Whatsapp : <a href="http://wa.me/081286169627" target="_blank">081286169627</a>  <br> Email : <a href="mailto:fauzanzakaria45@gmail.com">fauzanzakaria45@gmail.com</a></p>
+				<p>Whatsapp : <a href="http://wa.me/082122254623" target="_blank">082122254623</a>  <br> Email : <a href="mailto:rezaekaaditia@gmail.com">rezaekaaditia@gmail.com</a></p>
 			</div>
 			<div class="col-md-3">
 				<h3>MEDIA SOSIAL</h3>
-				<a href="https://www.facebook.com/trijoko.santoso"  target="_blank"><i class="fa fa-facebook-square"></i></a>
-				<a href=""><i class="fa fa-twitter-square"></i></a>
-				<a href="https://www.instagram.com/fauzanoz_/" target="_blank"><i class="fa fa-instagram"></i></a>
+				<a href="https://www.facebook.com/langganvariasi.official"  target="_blank"><i class="fa fa-facebook-square"></i></a>
+				<a href="https://twitter.com/?lang=en-id"><i class="fa fa-twitter-square"></i></a>
+				<a href="https://www.instagram.com/langgan_variasi/" target="_blank"><i class="fa fa-instagram"></i></a>
 			</div>
 		</div>
 	</div>

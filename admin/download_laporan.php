@@ -33,14 +33,14 @@ $ambil = $koneksi->query("SELECT * FROM pembelian pm LEFT JOIN pelanggan pl ON p
 	</style>
 	
 	<div class="headlaporan">
-	<img src="./assets/img/me.jpg" Width="100" style="float: left; margin-right:20px; height: 100px">
+	<img src="./assets/img/logo.png" Width="100" style="float: left; margin-right:20px; height: 100px">
 
 	<div style="margin-left :20px">
 		<div style="font-size : 18px"> Laporan Pembelian | Mulai '.date("d F Y",strtotime($tgl_mulai)).' Hingga '.date("d F Y",strtotime($tgl_selesai)).'
 		<br>
-		<font size="7">FAUZAN SPAREPART</font>
+		<font size="7">Langgan Variasi Motor</font>
 		<br>
-		Jl.Pengairan No.103, Bantar Gebang, Kota Bekasi,17154 </div>
+		Jl. Kolonel Sugiono No.50 Pekauman, Kec. Tegal Bar., Kota Tegal, Jawa Tengah 52133>
 	</div>
 	</div>
 	<br>
@@ -102,4 +102,4 @@ $ambil = $koneksi->query("SELECT * FROM pembelian pm LEFT JOIN pelanggan pl ON p
  	';
 // echo $isi;
 $mpdf->WriteHTML($isi);
-$mpdf->Output('Laporan_Toko_Fauzan_Sparepart.pdf', \Mpdf\Output\Destination::DOWNLOAD);
+$mpdf->Output('Laporan_Toko_Langgan_Variasi_Motor.pdf', \Mpdf\Output\Destination::DOWNLOAD);

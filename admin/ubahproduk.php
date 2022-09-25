@@ -90,4 +90,4 @@ if(isset($_POST['ubah']))
 	echo "<script>alert('Data telah diubah');</script>";
 	echo "<script>location='index.php?halaman=produk';</script>";
 }
-?>
+?> 

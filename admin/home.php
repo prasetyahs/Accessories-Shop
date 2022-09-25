@@ -34,17 +34,15 @@ while ($data_namaproduk = $query_namaproduk->fetch_assoc()) {
 }
 // print_r($jumlah_pembelian);die;
 ?>
-<div class="row">
-	<div class="col-md-3">
-		<div class="panel panel-default text-center"> 
-			
+    <div class="col-md-3">
+		<div class="panel panel-default text-center">
+			<a href="index.php?halaman=kategori">
 			<div class="panel-body bg-success">
-				<a href="index.php?halaman=kategori" >
-				Jumlah Kategori
+            Jumlah Kategori
 				<i class="fa fa-tags " style="font-size:100px;float:left;"></i>
 				<h2 style="float:right;margin:0;"><?php echo $jml_kategori ?></h2>
-					</a>
 			</div>
+			</a>
 		</div>
 	</div>
 
@@ -84,7 +82,7 @@ while ($data_namaproduk = $query_namaproduk->fetch_assoc()) {
 			</a>
 		</div>
 	</div> 
-	<?php if ($_SESSION['admin']['username']=='owner') {
+	<?php if ($_SESSION['admin']['username']=='Reza') {
 		echo '&nbsp; &nbsp; Grafik Status Pembelian<canvas id="oilChart" width="500" height="150"></canvas>
 			&nbsp; &nbsp; Grafik Penjualan Produk<canvas id="myChart"></canvas>';
 	}
@@ -125,6 +123,7 @@ var pieChart = new Chart(oilCanvas, {
   data: oilData
 });
 </script>
+
 <script>
     var ctx = document.getElementById('myChart').getContext('2d');
     var chart = new Chart(ctx, {

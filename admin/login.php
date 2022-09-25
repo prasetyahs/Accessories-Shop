@@ -7,7 +7,7 @@ $koneksi = new mysqli("localhost","root","","toko");
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Admin Fauzan Sparepart</title>
+	<title>Admin Langgan Variasi Motor</title>
 	<!-- BOOTSTRAP STYLES-->
 	<link href="assets/css/bootstrap.css" rel="stylesheet" />
 	<!-- FONTAWESOME STYLES-->
@@ -23,7 +23,7 @@ $koneksi = new mysqli("localhost","root","","toko");
 		<div class="row text-center ">
 			<div class="col-md-12">
 				<br /><br />
-				<h1> Fauzan Sparepart</h1>
+				<h1> Langgan Variasi Motor</h1>
 				<h3>Selamat Datang</h3>
 				<h2>Akses Admin</h2>
 				<br />
