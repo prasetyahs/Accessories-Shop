@@ -49,7 +49,6 @@ $barang = $barang->fetch_all(MYSQLI_ASSOC);
                     <th>Stok</th>
                     <th>EOQ</th>
                     <th>R</th>
-                    <th>POQ</th>
                     <th>RMSE</th>
                 </tr>
             </thead>
@@ -64,7 +63,7 @@ $barang = $barang->fetch_all(MYSQLI_ASSOC);
                     $eoq = ceil(sqrt(2 * $permintaan[$i] * $_GET['pemesanan'] / $_GET['penyimpanan']));
                     $r = $permintaan[$i] / 4;
                     $poq = ceil($permintaan[$i] / $r);
-                    $rmse =  round(pow(($poq - $eoq), 2), 2);
+                    $rmse =  round(pow(($_GET['penyimpanan'] - $eoq), 2), 2);
                     ?>
 
                     <tr>
@@ -74,7 +73,6 @@ $barang = $barang->fetch_all(MYSQLI_ASSOC);
                         <td><?= $_GET['penyimpanan'] ?></td>
                         <td><?= $eoq ?></td>
                         <td><?= $r ?></td>
-                        <td><?= $poq ?></td>
                         <td><?= $rmse ?></td>
                     </tr>
                 <?php
@@ -85,11 +83,11 @@ $barang = $barang->fetch_all(MYSQLI_ASSOC);
                     $j++;
                 } ?>
                 <tr>
-                    <td colspan="7">Jumlah : </td>
+                    <td colspan="6">Jumlah : </td>
                     <td><span style="font-weight:bold"><?= isset($rmseTotal) ? $rmseTotal : 0  ?></span> </td>
                 </tr>
                 <tr>
-                    <td colspan="7">RMSE : </td>
+                    <td colspan="6">RMSE : </td>
                     <td><span style="font-weight:bold"><?= isset($rmseTotal) ? round(sqrt($rmseTotal / count($data)), 2) : 0 ?></span> </td>
                 </tr>
             </tbody>
@@ -104,7 +102,6 @@ $barang = $barang->fetch_all(MYSQLI_ASSOC);
                         <th>Time Periode</th>
                         <th>EOQ</th>
                         <th>R</th>
-                        <th>POQ</th>
                         <th>RMSE</th>
                     </thead>
                     <tbody>
@@ -124,7 +121,7 @@ $barang = $barang->fetch_all(MYSQLI_ASSOC);
                                 $tmpR = $tmpR / 4;
                             }
                             $poqFuture = $eoqFuture != 0 && $tmpR != 0 ?  $eoqFuture / $tmpR : 0;
-                            $rmseN =  round(pow(($poqFuture - $eoqFuture), 2), 2);
+                            $rmseN =  round(pow(($lastPermintaan - $eoqFuture), 2), 2);
                             $dateString = count($data) > 0 ?  $data[count($data) - 1]["Year"] . "-" . $data[count($data) - 1]['Month'] : 0;
                             $date = strtotime($dateString);
                             $final = explode('-', date("Y-F", strtotime("+" . $m . " month", $date)));
@@ -133,7 +130,6 @@ $barang = $barang->fetch_all(MYSQLI_ASSOC);
                                 <td><?= $final[1] . " " . $final[0] ?></td>
                                 <td><?= round($eoqFuture, 2) ?></td>
                                 <td><?= round($tmpR, 2) ?></td>
-                                <td><?= round($poqFuture, 2) ?></td>
                                 <td><?= round($rmseN, 2) ?></td>
                             </tr>
                         <?php
@@ -144,11 +140,11 @@ $barang = $barang->fetch_all(MYSQLI_ASSOC);
                             $rmseTotalFuture = +$rmseN;
                         } ?>
                         <tr>
-                            <td colspan="4">Jumlah : </td>
+                            <td colspan="3">Jumlah : </td>
                             <td><span style="font-weight:bold"></span><?= round($rmseTotalFuture, 2) ?></td>
                         </tr>
                         <tr>
-                            <td colspan="4">RMSE : </td>
+                            <td colspan="3">RMSE : </td>
                             <td><span style="font-weight:bold"><?= isset($rmseTotalFuture) ? round(sqrt($rmseTotalFuture / $_GET['bulan']), 2) : 0 ?></span> </td>
                         </tr>
                     </tbody>

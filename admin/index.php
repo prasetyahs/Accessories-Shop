@@ -96,7 +96,7 @@ font-size: 16px;"> Selamat Datang, <strong><?= isset($_SESSION['admin']['nama_le
                             <a href="index.php?halaman=admin"><i class="fa fa-user"></i> Admin</a>
                         </li>
                         <li>
-                            <a href="index.php?halaman=input-poq"><i class="fa fa-bar-chart-o"></i> POQ</a>
+                            <a href="index.php?halaman=input-poq"><i class="fa fa-bar-chart-o"></i> EOQ</a>
                         </li>
                     <?php } ?>
                     <li>
@@ -225,13 +225,6 @@ font-size: 16px;"> Selamat Datang, <strong><?= isset($_SESSION['admin']['nama_le
                 backgroundColor: "#4676e8",
                 borderColor: '#4676e8',
                 tension: 0.1
-            }, {
-                label: 'POQ',
-                data: <?= json_encode($poqChart) ?>,
-                fill: false,
-                backgroundColor: "#e85e46",
-                borderColor: '#e85e46',
-                tension: 0.1
             }]
         };
         const config = {
@@ -260,13 +253,6 @@ font-size: 16px;"> Selamat Datang, <strong><?= isset($_SESSION['admin']['nama_le
                 backgroundColor: "#4676e8",
                 borderColor: '#4676e8',
                 tension: 0.1
-            }, {
-                label: 'POQ',
-                data: <?= json_encode($tmpArrPOQ) ?>,
-                fill: false,
-                backgroundColor: "#e85e46",
-                borderColor: '#e85e46',
-                tension: 0.1
             }]
         };
         const configPred = {
@@ -275,8 +261,8 @@ font-size: 16px;"> Selamat Datang, <strong><?= isset($_SESSION['admin']['nama_le
             options: {
                 scales: {
                     y: {
-                        suggestedMin: 50,
-                        suggestedMax: 100
+                        suggestedMin: 2,
+                        suggestedMax: 10
                     }
                 }
             }

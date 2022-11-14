@@ -3,7 +3,7 @@ $barang = "SELECT * FROM produk";
 $barang = $koneksi->query($barang);
 $barang = $barang->fetch_all(MYSQLI_ASSOC);
 ?>
-<h2>Input POQ</h2>
+<h2>Input EOQ</h2>
 <form method="get" action="index.php">
     <input type="hidden" value="proses-poq" name="halaman">
     <div class="form-group">
@@ -19,7 +19,7 @@ $barang = $barang->fetch_all(MYSQLI_ASSOC);
         <input type="number" class="form-control" name="penyimpanan">
     </div>
     <div class="form-group">
-        <label>Stok</label>
+        <label>Pilih Produk</label>
         <select name="id" class="form-select form-control" aria-label="Default select example">
             <option selected>-- Pilih Produk --</option>
             <?php foreach ($barang as $b) { ?>
