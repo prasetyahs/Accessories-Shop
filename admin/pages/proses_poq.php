@@ -104,6 +104,7 @@ $barang = $barang->fetch_all(MYSQLI_ASSOC);
                         <th>R</th>
                         <th>RMSE</th>
                     </thead>
+                    <?php if(isset($rmseTotal) && $rmseTotal > 0){ ?>
                     <tbody>
                         <?php
                         $tmpArrPOQ = [];
@@ -148,12 +149,15 @@ $barang = $barang->fetch_all(MYSQLI_ASSOC);
                             <td><span style="font-weight:bold"><?= isset($rmseTotalFuture) ? round(sqrt($rmseTotalFuture / $_GET['bulan']), 2) : 0 ?></span> </td>
                         </tr>
                     </tbody>
+                    <?php } ?>
                 </table>
             </div>
         </div>
+        <?php if(isset($rmseTotal)){ ?>
         <div class="col-12 mt-4">
             <h2>Grafik EOQ</h2>
             <canvas id="chartPrediksi" height="182"></canvas>
         </div>
+        <?php } ?>
     </div>
 </div>

@@ -93,6 +93,9 @@ font-size: 16px;"> Selamat Datang, <strong><?= isset($_SESSION['admin']['nama_le
                             <a href="index.php?halaman=ongkir"><i class="fa fa-plane"></i> Ongkos Kirim</a>
                         </li>
                         <li>
+                            <a href="index.php?halaman=indent"><i class="fa fa-plane"></i> Indent</a>
+                        </li>
+                        <li>
                             <a href="index.php?halaman=admin"><i class="fa fa-user"></i> Admin</a>
                         </li>
                         <li>
