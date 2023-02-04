@@ -24,8 +24,9 @@
         $keyword = @$_GET['keyword'];
         $ambil = $koneksi->query("SELECT * FROM pegawai");
         if (isset($keyword)) {
-            $ambil = $koneksi->query("SELECT * FROM pegawai WHERE kode_supplyer LIKE '%$keyword%'");
+            $ambil = $koneksi->query("SELECT * FROM pegawai WHERE nama LIKE '$keyword%'");
         }
+        
         ?>
         <?php while ($pecah = $ambil->fetch_assoc()) { ?>
             <tr>

@@ -152,7 +152,7 @@ $barang = $barang->fetch_all(MYSQLI_ASSOC);
             </div>
         </div>
         <div class="col-12 mt-4">
-            <h2>Grafik EOQ - POQ</h2>
+            <h2>Grafik EOQ</h2>
             <canvas id="chartPrediksi" height="182"></canvas>
         </div>
     </div>
