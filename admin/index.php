@@ -189,8 +189,12 @@ font-size: 16px;"> Selamat Datang, <strong><?= isset($_SESSION['admin']['nama_le
                         include "pages/input_indent.php";
                     } else if ($_GET['halaman'] == "indent") {
                         include "pages/indent.php";
-                    }else if ($_GET['halaman'] == "hapus-indent") {
-                        include "pages/hapus_indent.php";
+                    } else if ($_GET['halaman'] == "hapus-indent") {
+                        include "pages/delete_indent.php";
+                    } else if ($_GET['halaman'] == "add-indent") {
+                        include "pages/add-indent.php";
+                    } else if ($_GET['halaman'] == "ubah-indent") {
+                        include "pages/ubah_indent.php";
                     }
                 } else {
                     include 'home.php';
